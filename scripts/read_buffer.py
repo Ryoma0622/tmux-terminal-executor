@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# ///
 """Read the current buffer content of a tmux pane.
 
 Usage:
-    python3 read_buffer.py <session_name> [--lines N] [--history]
+    uv run read_buffer.py <session_name> [--lines N] [--history]
 
 Examples:
-    python3 read_buffer.py myserver
-    python3 read_buffer.py myserver --lines 20
-    python3 read_buffer.py myserver --history
+    uv run read_buffer.py myserver
+    uv run read_buffer.py myserver --lines 20
+    uv run read_buffer.py myserver --history
 """
 
 import argparse

@@ -16,7 +16,7 @@ Execute commands in pre-authenticated tmux sessions. The human sets up the sessi
 ## Prerequisites
 
 - tmux installed and in PATH
-- Python 3.10+ (standard library only, no pip installs needed)
+- [uv](https://docs.astral.sh/uv/) installed and in PATH (Python 3.10+ is resolved automatically via PEP 723 inline metadata)
 - A running tmux session created by the human (e.g., `tmux new -s myserver`)
 
 ## Workflow
@@ -24,7 +24,7 @@ Execute commands in pre-authenticated tmux sessions. The human sets up the sessi
 ### 1. Discover available sessions
 
 ```bash
-python3 {SKILL_DIR}/scripts/list_sessions.py
+uv run {SKILL_DIR}/scripts/list_sessions.py
 ```
 
 If no sessions exist, ask the human to create one:
@@ -35,22 +35,22 @@ tmux new -s <session-name>
 ### 2. Execute a command and get output
 
 ```bash
-python3 {SKILL_DIR}/scripts/run_command.py <session> "<command>" --timeout 30
+uv run {SKILL_DIR}/scripts/run_command.py <session> "<command>" --timeout 30
 ```
 
 The script uses UUID echo markers to reliably detect command completion and extract output. ANSI escape sequences are automatically stripped.
 
 For long-running commands, increase the timeout:
 ```bash
-python3 {SKILL_DIR}/scripts/run_command.py myserver "make build" --timeout 120
+uv run {SKILL_DIR}/scripts/run_command.py myserver "make build" --timeout 120
 ```
 
 ### 3. Read current terminal state (without executing)
 
 ```bash
-python3 {SKILL_DIR}/scripts/read_buffer.py <session>
-python3 {SKILL_DIR}/scripts/read_buffer.py <session> --lines 20
-python3 {SKILL_DIR}/scripts/read_buffer.py <session> --history
+uv run {SKILL_DIR}/scripts/read_buffer.py <session>
+uv run {SKILL_DIR}/scripts/read_buffer.py <session> --lines 20
+uv run {SKILL_DIR}/scripts/read_buffer.py <session> --history
 ```
 
 Use this to observe what's currently on screen, check prompts, or monitor running processes.

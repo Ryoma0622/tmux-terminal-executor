@@ -2,14 +2,14 @@
 
 ## Scripts
 
-All scripts are in `scripts/` and require Python 3.10+ with no external dependencies.
+All scripts are in `scripts/` and use PEP 723 inline metadata (`requires-python = ">=3.10"`). Run them with `uv run`.
 
 ### `list_sessions.py`
 
 List available tmux sessions. Run this first to discover sessions.
 
 ```bash
-python3 scripts/list_sessions.py
+uv run scripts/list_sessions.py
 ```
 
 ### `run_command.py`
@@ -17,7 +17,7 @@ python3 scripts/list_sessions.py
 Execute a command in a tmux session and get the output.
 
 ```bash
-python3 scripts/run_command.py <session> "<command>" [--timeout SECONDS] [--no-markers]
+uv run scripts/run_command.py <session> "<command>" [--timeout SECONDS] [--no-markers]
 ```
 
 | Argument | Description |
@@ -34,7 +34,7 @@ Exit codes: 0=success, 1=tmux error, 2=timeout.
 Read the current visible content of a tmux pane without executing anything.
 
 ```bash
-python3 scripts/read_buffer.py <session> [--lines N] [--history]
+uv run scripts/read_buffer.py <session> [--lines N] [--history]
 ```
 
 | Argument | Description |

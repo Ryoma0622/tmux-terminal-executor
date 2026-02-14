@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# ///
 """List available tmux sessions.
 
 Usage:
-    python3 list_sessions.py
+    uv run list_sessions.py
 """
 
 import sys

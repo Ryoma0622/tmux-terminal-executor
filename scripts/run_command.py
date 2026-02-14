@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# ///
 """Run a command in a tmux session and print the output.
 
 Usage:
-    python3 run_command.py <session_name> <command> [--timeout SECONDS]
+    uv run run_command.py <session_name> <command> [--timeout SECONDS]
 
 Examples:
-    python3 run_command.py myserver "ls -la"
-    python3 run_command.py myserver "kubectl get pods" --timeout 60
+    uv run run_command.py myserver "ls -la"
+    uv run run_command.py myserver "kubectl get pods" --timeout 60
 """
 
 import argparse

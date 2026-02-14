@@ -1,3 +1,6 @@
+# /// script
+# requires-python = ">=3.10"
+# ///
 """
 TmuxController — A bridge for AI Agents to operate authenticated tmux sessions.
 
