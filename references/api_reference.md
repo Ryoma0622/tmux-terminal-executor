@@ -43,6 +43,23 @@ uv run scripts/read_buffer.py <session> [--lines N] [--history]
 | `--lines` | Return only the last N lines |
 | `--history` | Include scroll-back history |
 
+### `send_keys.py`
+
+Send keystrokes to a tmux session without waiting for completion. For interactive programs, streaming commands, or control sequences.
+
+```bash
+uv run scripts/send_keys.py <session> "<text>"
+uv run scripts/send_keys.py <session> "<text>" --no-enter
+uv run scripts/send_keys.py <session> --ctrl C
+```
+
+| Argument | Description |
+|----------|-------------|
+| `session` | tmux session name |
+| `text` | Text to send (optional if `--ctrl` is used) |
+| `--no-enter` | Do not press Enter after text |
+| `--ctrl` | Send Ctrl+KEY (e.g. `C`, `Z`, `[` for Escape) |
+
 ## TmuxController Class (for advanced usage)
 
 ```python
